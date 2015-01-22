@@ -45,3 +45,35 @@ might be handy when using the virtual folders as goals.
 The filtering rule specifies which translation units are included within a
 virtual folder. Currently it consists of a list of file paths relative to the
 virtual folder location.
+
+
+.. _virtual_folders#apply:
+
+Adding and updating virtual folders
+-----------------------------------
+
+To add or modify the properties of virtual folders use the
+:ref:`add_vfolders <commands#add-virtual-folders>` management command.
+
+This command imports a JSON file holding a list of virtual folders, and the
+files included on each virtual folder along with all their attributes. Check
+the specs for the :ref:`JSON format <virtual_folders#json-format>` in order to
+know how to craft a JSON file that fits your needs.
+
+
+.. _virtual_folders#json-format:
+
+Format for the JSON file
+------------------------
+
+The JSON file used to import virtual folders consists of a list of virtual
+folder definitions with the :ref:`same fields <virtual_folders#attributes>` as
+the virtual folders, except for two differences:
+
+- If the **description** includes newlines those must be escaped,
+- Instead of a filtering rule an optional **file list** is provided.
+
+The following example depicts a basic JSON file:
+
+.. literalinclude:: virtual_folders.json
+   :language: json
